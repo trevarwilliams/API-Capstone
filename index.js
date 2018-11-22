@@ -17,6 +17,7 @@ function getDataFromTastedive(searchTerm, callback) {
   $.getJSON(tastedive_search_url, query, callback);
 }
 
+
 function getDataFromTicketmaster(searchTerm, callback) {
   // https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
 
