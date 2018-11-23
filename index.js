@@ -39,6 +39,7 @@ function displaySearchData(data) {
 }
 
 function generateResults(result) {
+  console.log(result);
 // HTML Structure for each search results
   return `
     <div class="results">
