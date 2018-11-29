@@ -1,3 +1,39 @@
 * {
   box-sizing: border-box;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  margin: auto;
+  width: 600px;
+}
+
+.resultsHeader, .results {
+  height: 300px;
+  width: 48%;
+  margin: 0
+  padding: 0;
+  background-color: black;
+  color: white;
+  opacity: 0.9;
+}
+
+.results {
+  display: inline-block;
+}
+
+/* Page styling mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .resultsHeader, .results {
+    display: block;
+    width: 100%;
+  }
+}

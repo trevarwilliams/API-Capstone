@@ -1,62 +1,70 @@
 'use strict'
 
-const tastedive_search_url = 'https://tastedive.com/api/similar';
-const ticketmaster_search_url = 'https://app.ticketmaster.com/discovery/v2/events';
-
-function getDataFromTastedive(searchTerm, callback) {
-  // https://tastedive.com/read/api
-  // https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
-
-  const query = {
-    q: `${searchTerm}`,
-    type: 'music',
-    info: 0,
-    limit: 10,
-    k: '324182-APICapst-PHNDXBD6',
-    }
-  $.getJSON(tastedive_search_url, query, callback);
-}
-
-
-function getDataFromTicketmaster(searchTerm, callback) {
-  // https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
-
-  const query = {
-    apikey: 'kmyDG2NkRS1Dd98GYTV0bcTwIoHFMccu',
-    postalCode: '',
-    keyword: `${searchTerm}`,
-  }
-  $.getJSON(ticketmaster_search_url, query, callback);
-}
-
-function displaySearchData(data) {
-  // Create each search result HTML
-  const results = data.items.map((item, index) => generateResults(item));
-  // Inject results
-  $('.search-results')
-    .html(results)
-    .prop('hidden', false);
-}
-
-function generateResults(result) {
-  console.log(result);
-// HTML Structure for each search results
-  return `
-    <div class="results">
-
-    </div>`;
-}
-
 function searchSubmit() {
   $('.search-form').submit(event => {
     event.preventDefault();
-    // Find input, feed to API
     const queryTarget = $(event.currentTarget).find('#band-search');
     const query = queryTarget.val();
-    getDataFromTastedive(query, displaySearchData);
-    //Empty search input
+    getArtistFromLastFM(query, displayArtistData);
+    getSimilarFromLastFM(query, displaySimilarData);
     queryTarget.val("");
   });
+}
+
+const lastfm_search_url = 'https://ws.audioscrobbler.com/2.0/';
+// last.fm key: b555326f947cfc49eb798cc3643beaab
+
+// Finds information on the searched artist
+function getArtistFromLastFM(searchTerm, callback) {
+  const query = {
+    artist: `${searchTerm}`,
+    autocorrect: 1,
+    api_key: 'b555326f947cfc49eb798cc3643beaab',
+    method: 'artist.getInfo',
+    format: 'json',
+    }
+  $.getJSON(lastfm_search_url, query, callback);
+}
+
+// Finds similar artist from searched artist
+function getSimilarFromLastFM(searchTerm, callback) {
+  const query = {
+    artist: `${searchTerm}`,
+    autocorrect: 1,
+    limit: 10,
+    api_key: 'b555326f947cfc49eb798cc3643beaab',
+    method: 'artist.getSimilar',
+    format: 'json',
+    }
+  $.getJSON(lastfm_search_url, query, callback);
+}
+
+// Generates & injects HTML for searched artist
+function displayArtistData(data) {
+   const resultsHeader = `<div class="resultsHeader" style="background-image: url(${data.artist.image[4][`#text`]})">
+    <h2><a href="${data.artist.url}" target="_blank">${data.artist.name}</a></h2>
+    </div>
+    <div class="similarHeader">
+    <h2>Similar Artists</h2>
+    </div>`;
+  $('.search-results').prepend(resultsHeader);
+}
+
+function displaySimilarData(data) {
+  // Generates HTML body for similar artists from search
+  const result = data.similarartists.artist.map((item, index) => generateSimilarResults(item));
+  // Inject search results
+  $('.search-results')
+    .append(result)
+    .prop('hidden', false);
+}
+
+// Sets HTML for similar artists
+function generateSimilarResults(result) {
+  return `
+    <div class="results" style="background-image: url(${result.image[4][`#text`]})">
+    <a href="${result.url}" target="_blank">${result.name}</a><br>
+    </div>`;
 }
 
 $(searchSubmit);
