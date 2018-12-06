@@ -1,39 +1,204 @@
 * {
   box-sizing: border-box;
+  color: white;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+body {
+  background: #343d46;
+  font-family: 'Oswald', sans-serif;
 }
 
 a {
-  color: white;
   text-decoration: none;
 }
 
-.container {
-  margin: auto;
-  width: 600px;
+.landing-page-container {
+  text-align: center;
 }
 
-.resultsHeader, .results {
-  height: 300px;
-  width: 48%;
-  margin: 0
-  padding: 0;
+.nav-bar {
+  width: 100%;
   background-color: black;
-  color: white;
-  opacity: 0.9;
+  padding: 10px;
 }
 
-.results {
+.nav-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar li {
+  display: inline;
+  padding: 5px;
+}
+
+.nav-bar li:hover, .nav-bar li:focus, .nav-bar li:active {
+  background-color: white;
+}
+
+main.search-results a {
+  transition: opacity 0.5s;
+}
+
+main.search-results a:hover, main.search-results a:focus {
+  opacity: 0.3; 
+}
+
+h2 {
+  font-size: 50px;
+}
+
+div {
+  margin: auto;
+  border-radius: 10px;
+}
+
+div.container {
+  width: 60%;
+  margin-top: 30px;
+}
+
+div.form-container {
+  width: 500px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+form.search-form {
+  width: 500px;
+}
+
+input, button {
+  height: 50px;
+  border: none;
+}
+
+input {
+  float: left;
+  width: 450px;
+  font-size: 20px;
+  background: black;
+  padding-left: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+button {
+  width: 50px;
+  background: black url('https://www.last.fm/static/images/icons/search_mob.fc5a7639a43c.png') center center no-repeat;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+div.js-search-header {
+  text-align: center;
+}
+
+div.search-results {
+  width: 100%;
+}
+
+div.resultsHeader, div.similarResults {
   display: inline-block;
+  position: relative;
+  height: 300px;
+} 
+
+div.resultsHeader {
+  width: 300px;
 }
 
-/* Page styling mobile */
-@media screen and (max-width: 768px) {
-  .container {
+div.artist-bio {
+  display: inline-block;
+  height: 300px;
+  width: 450px;
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px;
+  vertical-align: top;
+  text-align: justify;
+  overflow: auto;
+}
+
+div.js-search-results {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+div.similarResults {
+  width: 23%;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+div.resultsHeader span.band-name, div.similarResults span.band-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 40px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+
+
+/* Mobile styling */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  div.container {
     width: 90%;
   }
 
-  .resultsHeader, .results {
-    display: block;
-    width: 100%;
+  div.form-container, form.search-form {
+    width: 375px;
+  }
+
+  div.form-container {
+    margin-bottom: 25px;
+  }
+
+  input {
+    width: 325px;
+  }
+
+  div.resultsHeader, div.artist-bio, div.similarResults {
+    display: inline-block;
+    width: 300px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+/* Tablet styling */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  div.container {
+    width: 525px;
+  }
+
+  div.form-container, form.search-form {
+    width: 475px;
+  }
+
+  div.form-container {
+    margin-bottom: 25px;
+  }
+
+  input {
+    width: 425px;
+  }
+
+  div.resultsHeader, div.similarResults {
+    display: inline-block;
+  }
+  
+  div.resultsHeader, div.artist-bio, div.similarResults {
+    width: 45%;
+    margin-bottom: 5px;
+    text-align: left;
   }
 }

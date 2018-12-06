@@ -5,24 +5,47 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>API Capstone</title>
+
+  <!-- CSS Normalize, font, stylesheet -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet">
 	<link href="main.css" rel="stylesheet" type="text/css">
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+  <!-- Jquery & javascript load -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="index.js"></script>
 </head>
 
 <body>
+
 	<div class="container">
-		<form class="search-form" name="tastedive-search">
-			<label for="band-search"><h1></h1></label>
-      <input type="text" name="query" id="band-search" required placeholder="Search by Artist">
-      <button type="Submit">Search</button>
-    </form>
+		<div class="nav-bar">
+					<ul>
+						<li><a href="">Home</a></li>
+						<li><a href="https://www.last.fm/" target="_blank">Last.FM</a></li>
+					</ul>
+				</div>
+    <div class="landing-page-container">
+			<h1>Explore artists similar to <br> the ones you already love! </h1>
+		</div>
+		
+		<div class="form-container">
+			<form class="search-form" name="tastedive-search">
+				<label for="band-search"></label>
+        <input type="text" name="query" id="band-search" placeholder="Enter artist name" required><button type="Submit" value="Search" taxindex="-1"></button>
+      </form>
+    </div>
 
     <main role="main" class="search-results" aria-live="assertive" hidden>
-    	<!-- Results appear here -->
+      <div class="js-search-header">
+    	  <!-- Searched artist result will appear here -->
+      </div>
+      <div class="js-search-results">
+        <h2>Similar Artists</h2>
+        <!-- Similar artist results will appear here -->
+      </div>
     </main>
   </div>
+
 </body>
 </html>
