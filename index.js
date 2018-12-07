@@ -51,7 +51,8 @@ function getSimilarFromLastFM(searchTerm, callback) {
 
 // Generate & inject HTML for searched artist
 function displayArtistData(data) {
-  const resultsHeader = `
+  try {
+    const resultsHeader = `
     <a href="${data.artist.url}" target="_blank">
       <div class="resultsHeader" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${data.artist.image[4][`#text`]}) no-repeat;">
       <span class="band-name">${data.artist.name}</span>
@@ -61,8 +62,15 @@ function displayArtistData(data) {
     <span>${data.artist.bio.summary}</span>
     </div>
     `;
-  $('.js-search-header').append(resultsHeader);
-  console.log(data);
+    $('.js-search-header').append(resultsHeader);
+  }
+  catch (err) {
+    const queryTarget = $(event.currentTarget).find('#band-search');
+    const query = queryTarget.val();
+    const errorMessage = `
+    <h2>That artist was not found, please try another!</h2>`
+    $('.js-search-header').append(errorMessage);
+  }
 }
 
 // Set HTML for similar artists
