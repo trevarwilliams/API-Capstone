@@ -36,6 +36,7 @@ a {
 .nav-bar li {
   display: inline;
   padding: 5px;
+  transition: background-color 0.4s;
 }
 
 .nav-bar li:hover, .nav-bar li:focus, .nav-bar li:active {
@@ -43,11 +44,11 @@ a {
 }
 
 main.search-results a {
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 }
 
 main.search-results a:hover, main.search-results a:focus {
-  opacity: 0.3; 
+  opacity: 0.3;
 }
 
 h2 {
@@ -60,7 +61,7 @@ div {
 }
 
 div.container {
-  width: 60%;
+  width: 80%;
   margin-top: 30px;
 }
 
@@ -108,7 +109,7 @@ div.resultsHeader, div.similarResults {
   display: inline-block;
   position: relative;
   height: 300px;
-} 
+}
 
 div.resultsHeader {
   width: 300px;
@@ -132,7 +133,6 @@ div.js-search-results {
 
 div.similarResults {
   width: 23%;
-  margin-bottom: 5px;
   text-align: left;
 }
 
@@ -144,7 +144,6 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   margin-left: 5px;
   margin-bottom: 2px;
 }
-
 
 
 /* Mobile styling */
@@ -162,8 +161,8 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   }
 
   input {
-    margin-left: 5%;
     width: 80%;
+    margin-left: 5%;
   }
 
   button {
@@ -171,12 +170,10 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   }
 
   div.resultsHeader, div.artist-bio, div.similarResults {
-    display: inline-block;
     width: 300px;
     margin-bottom: 5px;
   }
 }
-
 
 
 /* Tablet styling */
@@ -196,14 +193,9 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   input {
     width: 425px;
   }
-
-  div.resultsHeader, div.similarResults {
-    display: inline-block;
-  }
   
   div.resultsHeader, div.artist-bio, div.similarResults {
     width: 45%;
     margin-bottom: 5px;
-    text-align: left;
   }
 }
