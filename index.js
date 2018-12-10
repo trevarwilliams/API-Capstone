@@ -3,10 +3,8 @@
 function searchSubmit() {
   $('.search-form').submit(event => {
     event.preventDefault();
-    // Clear out existing results if any
-    $('.js-search-header').html('');
-    $('.js-search-results').html('');
-    // Get search value
+    clearPrevious();
+    //Retrieve input value
     const queryTarget = $(event.currentTarget).find('#band-search');
     const query = queryTarget.val();
     // Get API info
@@ -14,11 +12,22 @@ function searchSubmit() {
     getSimilarFromLastFM(query, displaySimilarData);
     // Clear out search field
     queryTarget.val('');
-    //Hide landing page
-    $('.landing-page-container').prop('hidden', true);
-    // Unhide results container
-    $('.search-results').prop('hidden', false);
+    //Hide landing page, show results container
+    containerHandler();
+    //Un-focus input - hides keyboard after search on mobile
+    $('.search-form').blur();
   });
+}
+
+// Clear out existing results if any
+function clearPrevious() {
+  $('.js-search-header').html('');
+  $('.js-search-results').html('');
+}
+
+function containerHandler() {
+  $('.landing-page-container').prop('hidden', true);
+  $('.search-results').prop('hidden', false);
 }
 
 const lastfm_search_url = 'https://ws.audioscrobbler.com/2.0/';

@@ -154,7 +154,7 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   }
 
   div.form-container, form.search-form {
-    width: 375px;
+    width: 100%;
   }
 
   div.form-container {
@@ -162,7 +162,12 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
   }
 
   input {
-    width: 325px;
+    margin-left: 5%;
+    width: 80%;
+  }
+
+  button {
+    width: 10%;
   }
 
   div.resultsHeader, div.artist-bio, div.similarResults {
