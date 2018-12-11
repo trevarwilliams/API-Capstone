@@ -68,8 +68,6 @@ function displayArtistData(data) {
     $('.js-search-header').append(resultsHeader);
   }
   catch (err) {
-    //const queryTarget = $(event.currentTarget).find('#band-search');
-    //const query = queryTarget.val();
     const errorMessage = `<h2>That artist was not found, please try another!</h2>`
     $('.js-search-header').append(errorMessage);
   }
