@@ -3,17 +3,17 @@ An application designed to quickly access artists similar to ones already enjoye
 
 ## Screenshots
 
-Landing Page
+### Landing Page
 
 ![Landing page](/screenshots/landing-page.png)
 
 
-Search Results
+### Search Results
 
 ![Search results example](/screenshots/search-page.png)
 
 
-Last.FM page from Search
+### Last.FM page from Search
 
 ![Last.FM from result](/screenshots/link-landing.png)
 
