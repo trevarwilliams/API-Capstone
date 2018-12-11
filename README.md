@@ -1,4 +1,4 @@
-# API-Capstone
+# A Lot Like
 An application designed to quickly access artists similar to ones already enjoyed by the user.
 
 ## Screenshots
@@ -23,4 +23,4 @@ Last.FM page from Search:
 * JQuery
 
 ## Demo
-* <a href="https://trevarwilliams.github.io/API-Capstone/">Live demo</a>
+* <a href="https://trevarwilliams.github.io/alotlike/">Live demo</a>
