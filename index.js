@@ -77,7 +77,7 @@ function displayArtistData(data) {
 function displaySimilarData(data) {
   try {
     const result = data.similarartists.artist.map((item, index) => generateSimilarResults(item));
-  $('.js-search-results').prepend(`<h2>Similar Artists</h2>`);
+  $('.js-search-results').prepend(`<h2>is a lot like...</h2>`);
     $('.js-search-results').append(result);
   }
   catch (err) {
