@@ -75,6 +75,10 @@ form.search-form {
   width: 500px;
 }
 
+label {
+  display: block;
+}
+
 input, button {
   height: 50px;
   border: none;
@@ -158,6 +162,10 @@ div.resultsHeader span.band-name, div.similarResults span.band-name {
 
   div.form-container {
     margin-bottom: 25px;
+  }
+
+  label {
+    margin-left: 5%;
   }
 
   input {
