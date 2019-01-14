@@ -1,5 +1,9 @@
 'use strict'
 
+// If error key: display error message instead of letting code break
+// pass message to user
+// set query to parameter -> event
+
 function searchSubmit() {
   $('.search-form').submit(event => {
     event.preventDefault();
